@@ -22,15 +22,45 @@
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	</properties>
 
+	<!-- 	COMMENT: 
+			"spring-boot-starter-data-jpa" dependency allow Spring Boot to 
+			auto configure and integrate to a data source.
+			In this case, JPA use embedded H2 Database "com.h2database" as 
+			a data source to store and get the data.
+			
+			In real world case, people do not use H2 embedded database but instead using
+			mySQL, Postgres or Oracle, which located in own server.
+			
+			That means, we need to tell Spring boot in "application.properties"
+			to provide JDBC conn details and Spring will automatically set up the
+			data source pooling.
+			
+			Default pooling strategy:
+			tomcat-jdbc, because of the good performance
+			Other pooling strategy:
+			HikariCP, Commons-DBCP and Commons-DBCP2
+	-->
   	<dependencies>
   		<dependency>
         	<groupId>org.springframework.boot</groupId>
         	<artifactId>spring-boot-starter-web</artifactId>
     	</dependency>
     	<dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-data-jpa</artifactId>
+    	</dependency>
+    	<dependency>
+        	<groupId>com.h2database</groupId>
+        	<artifactId>h2</artifactId>
+    	</dependency>
+    	<dependency>
+        	<groupId>org.flywaydb</groupId>
+        	<artifactId>flyway-core</artifactId>
+    	</dependency>
+    	
+    	<dependency>
         	<groupId>junit</groupId>
         	<artifactId>junit</artifactId>
-        	<version>3.8.1</version>
         	<scope>test</scope>
     	</dependency>
   	</dependencies>
