@@ -20,9 +20,11 @@
   	
   	<properties>
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    	<maven.compiler.source>1.8</maven.compiler.source>
+   		<maven.compiler.target>1.8</maven.compiler.target>
   	</properties>
 
-	<!-- 	COMMENT: 
+	<!-- 	DATA SOURCE INTEGRATION: 
 			"spring-boot-starter-data-jpa" dependency allow Spring Boot to 
 			auto configure and integrate to a data source.
 			In this case, JPA use embedded H2 Database "com.h2database" as 
@@ -58,9 +60,14 @@
         	<artifactId>flyway-core</artifactId>
     	</dependency>
     	
+    	<!-- TEST ENV
+    	This dependency only runs in the development and MAVEN test modes.
+    	When the app is bundled and packaged for deployment, this dependency will
+    	be ignored because of the "test" scope. 
+    	 -->
     	<dependency>
-        	<groupId>junit</groupId>
-        	<artifactId>junit</artifactId>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-test</artifactId>
         	<scope>test</scope>
     	</dependency>
   	</dependencies>

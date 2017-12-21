@@ -29,7 +29,6 @@ public class ShipwreckController {
 	public List<Shipwreck> list(){
 		// Before JPA: return ShipwreckStub.list();
 		// The findAll() method query the database for all shipwreck models.
-		System.out.println("JALANANDREW");
 		return shipwreckRepository.findAll();
 	}
 	
